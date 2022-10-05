@@ -1,0 +1,6 @@
+M_incompressible_displacing_OB;
+Ca = CaSimCalculate(parameters,statistics,geometry);
+print(fullfile(saveSimFolder,sprintf('%s_mu=%1.3g_Q=%1.3e_Ca=%1.3e_Pi=%1.2g.png',txtFile(1:end-4),...
+    parameters.mu,statistics.sum_Q/statistics.time,Ca,parameters.P)),'-dpng');
+save(fullfile(saveSimFolder,sprintf('%s_mu=%1.3g_Q=%1.3e_Ca=%1.3e_Pi=%1.2g.mat',txtFile(1:end-4),...
+    parameters.mu,statistics.sum_Q/statistics.time,Ca,parameters.P)))
