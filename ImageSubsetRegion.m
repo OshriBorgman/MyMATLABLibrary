@@ -14,10 +14,15 @@ function [subsetMat, subsetZone] = ImageSubsetRegion(matInput, lowThresh, highTh
 % 19/12/2021: Change the upper boundary to <=, to capture the cluster of
 % logical arrays
 % 08/03/2022: I included the rectangular subset region in the function
+% 18/10/2022: Create a line of pixel connecting the left, upper and lower
+% boundaries, to treat fractional (unsaturated) cluster patterns
 
-% 25/03/2022: Connect the sides of the image to include separate clusters
+% Connect the boundaries of the image to include separate clusters
 % in the tight zone
-matInput(:, [1 end]) = lowThresh;
+matInput(:, 1) = lowThresh;
+% Add the side boundaries to account for clusters disconnected from the
+% inlet due to image cropping
+matInput([1 end], :) = lowThresh;
 % matInput([1 end], :) = lowThresh;
 % Find all pixels between threshold values
 matLabel = bwlabel(matInput>=(lowThresh) & matInput<=(highThresh));

@@ -27,12 +27,12 @@ imagesc(imgRefAdaptThresh3);
 axis equal tight
 title(['Reference intensity thresholded ' imgCharNameRef], 'Interpreter', 'none')
 
-% Define the grains radius range in two parts
-radRange1 = [10 25];
-radRange2 = [25 40];
-% % Define the grains radius range in two parts for the first Cargese experiment
-% radRange1 = [15 30];
-% radRange2 = [30 50];
+% % % Define the grains radius range in two parts
+% % radRange1 = [10 25];
+% % radRange2 = [25 40];
+% Define the grains radius range in two parts for the first Cargese experiment
+radRange1 = [15 30];
+radRange2 = [30 50];
 [centers1, radii1] = imfindcircles(imgRefAdaptThresh3, radRange1);
 [centers2, radii2] = imfindcircles(imgRefAdaptThresh3, radRange2);
 % Combine them together
@@ -76,8 +76,8 @@ title(['Reference intensity + grains' imgCharNameRef], 'Interpreter', 'none')
 %%
 
 % Find bubbles with radii smaller than the grains
-radRangeBub1 = [2 5];
-radRangeBub2 = [6 8];
+radRangeBub1 = [5 10];
+radRangeBub2 = [15 20];
 [centersBub1, radiiBub1] = imfindcircles(imgRefAdaptThresh3, radRangeBub1);
 [centersBub2, radiiBub2] = imfindcircles(imgRefAdaptThresh3, radRangeBub2);
 % Combine them together
@@ -99,7 +99,7 @@ axis equal tight
 
 % Plot the difference
 figure;
-imagesc(grainMask2+grainMask)
+imagesc(grainMask2+2*grainMask)
 axis equal tight
 
 
