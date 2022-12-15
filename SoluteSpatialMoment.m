@@ -9,11 +9,11 @@ function [centMass, secMom] = SoluteSpatialMoment(F, maxF, minF, porSpc)
 % zone
 % minF: the minimum value of the variable to be considered in the mixing
 % zone
-% porSpc: the points copmrising the pore space (grains excluded)
+% porSpc: the points comprising the pore space (grains excluded)
 
 % The mixing zone points
 mixZone = (F<maxF & F>minF & porSpc);
-mixZone = (F>minF & porSpc);
+% mixZone = (F>minF & porSpc);
 
 [X,Y] = meshgrid(1:size(F,2), 1:size(F,1));
 

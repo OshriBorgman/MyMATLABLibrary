@@ -15,6 +15,8 @@ varargout{2}.saveMeanGrad = zeros(Nframes,1);
 varargout{2}.saveMeanConc = zeros(Nframes,1);
 varargout{2}.saveTotalMass = zeros(Nframes,1);
 varargout{2}.saveVarConc = zeros(Nframes,1);
+varargout{2}.SpatMomOne = zeros(Nframes,2);
+varargout{2}.SpatMomTwo = zeros(Nframes,2);
 varargout{2}.Time = zeros(Nframes,1);
 % The width of the mixing zone
 varargout{2}.mixZoneWidth = zeros(Nframes,1);
@@ -23,6 +25,9 @@ varargout{2}.mixZoneArea = zeros(Nframes,1);
 % The mixing front
 varargout{2}.mixFrontLen = zeros(Nframes,1);
 varargout{2}.mixFrontIdx = cell(Nframes,1);
+% The spatial moments of the solute plume
+varargout{2}.SpatMomOne = zeros(Nframes,2);
+varargout{2}.SpatMomTwo = zeros(Nframes,2);
 
 % Variables for saving the distributions of concentrations, gradients, etc. 
 varargout{3}.CLinN = cell(Nframes,1);
